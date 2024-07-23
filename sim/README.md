@@ -1,0 +1,27 @@
+FBAM Simulation Studies
+================
+
+This directory contains the code necessary to replicate our simulation
+studies including the BMARD comparison and sensitivity analysis
+described in the supplementary material. To replicate a simulation,
+execute
+
+``` sh
+cd /path/to/fbam-etc/
+Rscript sim/sim_study.R ARGS
+```
+
+See the top of the `sim_study.R` file for a description of the possible
+command line arguments you may specify. This file was used to run the
+study described in the article and the sensitivity analysis described in
+the supplementary material.
+
+To run a BMARD comparison study, execute
+
+``` sh
+cd /path/to/fbam-etc/
+Rscript sim/comparison-study/BMARD_comparison.R ARGS
+```
+
+As before, see the top of the `BMARD_comparison.R` file for a
+description of the command line arguments.
