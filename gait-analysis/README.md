@@ -3,12 +3,13 @@ Analysis of Stride Interval Series
 
 This directory contains the code to perform the analysis of stride
 interval series collected by Hausdorff et al. (1998). To begin, run the
-`gaitdata_download_process_fit.R` script after ensuring that the working
-directory is the parent directory of the `gait-analysis` sub-directory.
+`gaitdata_download_process_fit.R` script after **ensuring that the
+working directory is the parent directory of the `gait-analysis`
+sub-directory, that is, the `fbam-etc` directory**.
 
 ``` sh
 cd /path/to/fbam-etc/
-Rscript gait-analysis/gaitdata_download_process_fit.R
+Rscript gait-analysis/gaitndd_download-preprocess.R
 ```
 
 This script will download the data directly from

@@ -3,11 +3,11 @@ title: "Analysis of Stride Interval Series"
 output: github_document
 ---
 
-This directory contains the code to perform the analysis of stride interval series collected by Hausdorff et al. (1998). To begin, run the `gaitdata_download_process_fit.R` script after ensuring that the working directory is the parent directory of the `gait-analysis` sub-directory. 
+This directory contains the code to perform the analysis of stride interval series collected by Hausdorff et al. (1998). To begin, run the `gaitdata_download_process_fit.R` script after **ensuring that the working directory is the parent directory of the `gait-analysis` sub-directory, that is, the `fbam-etc` directory**.
 
 ```{sh, eval=FALSE}
 cd /path/to/fbam-etc/
-Rscript gait-analysis/gaitdata_download_process_fit.R
+Rscript gait-analysis/gaitndd_download-preprocess.R
 ```
 
 This script will download the data directly from [physionet.org](https://physionet.org/content/gaitndd/1.0.0/) and process it according to the procedure detailed in the article. The original data will be placed in the `gait-analysis/data-raw/` directory and the output of this script will be placed in the `gait-analysis/data/` directory.
