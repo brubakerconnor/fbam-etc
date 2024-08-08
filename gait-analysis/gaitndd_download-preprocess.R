@@ -2,6 +2,7 @@ rm(list = ls())
 set.seed(451)
 
 # download files from physionet directly
+print('Downloading data files from physionet...')
 if (!dir.exists('gait-analysis/data-raw/')) {
   dir.create('gait-analysis/data-raw/')
   dir.create('gait-analysis/data/')
@@ -73,6 +74,7 @@ for (i in 1:length(ts_files)) {
 }
 
 # read and clean up the subject-level descriptors file
+print('Processing subject descriptors file...')
 desc <- read.delim("gait-analysis/data-raw/physionet.org/files/gaitndd/1.0.0/subject-description.txt",
                    row.names = NULL, na.strings = "MISSING")
 names(desc) <- c("patient_id", "group", "age", "height", "weight", "gender",
@@ -133,6 +135,7 @@ for (i in 1:ncol(x)) {
 dev.off()
 
 # self similarity parameter
+print('Computing self similarity parameters...')
 ssp <- rep(0, ncol(x))
 for (i in 1:ncol(x)) {
   print(i)
@@ -140,6 +143,7 @@ for (i in 1:ncol(x)) {
 }
 
 # no clustering and clustering solutions
+print('Running FBAM...')
 noclust <- fbam::fbam(gait$x, 1, 2:6, parallel = TRUE)$selected
 noclust$rep_collapsed <- data.frame(
   fbam:::rep_collapsed_by_index(gait$mtspec,
@@ -157,6 +161,7 @@ clust$rep_collapsed <- data.frame(
 names(clust$rep_collapsed) <- c("LF", "HF")
 
 # create data object and save
+print('Saving data...')
 x <- data.frame(x); names(x) <- patient_id
 mtspec <- data.frame(mtspec); names(mtspec) <- patient_id
 gait <- list(
